@@ -1,0 +1,1852 @@
+==========================================
+SLURM_JOB_ID = 2596894
+SLURM_NODELIST = gnode080
+SLURM_JOB_GPUS = 1
+==========================================
+==========================================
+  Earley Parser - Full Run
+==========================================
+
+>>> parse.py on arith.gr (correctness check)
+(ROOT (EXPR (TERM (FACTOR (Num 3)))))
+(ROOT [0,1]
+      (EXPR [0,1]
+            (TERM [0,1]
+                  (FACTOR [0,1]
+                          (Num [0,1]
+                               3)))))
+8.455324334921691
+NONE
+(ROOT (EXPR (TERM (TERM (FACTOR (Num 3)))
+                  *
+                  (FACTOR (Num 5)))))
+(ROOT [0,3]
+      (EXPR [0,3]
+            (TERM [0,3]
+                  (TERM [0,1]
+                        (FACTOR [0,1]
+                                (Num [0,1]
+                                     3)))
+                  *
+                  (FACTOR [2,3]
+                          (Num [2,3]
+                               5)))))
+15.325693382592382
+(ROOT (EXPR (EXPR (EXPR (TERM (TERM (FACTOR (Num 3)))
+                              *
+                              (FACTOR (Num 5))))
+                  +
+                  (TERM (TERM (FACTOR (Num 6)))
+                        *
+                        (FACTOR {
+                                (EXPR (EXPR (EXPR (TERM (FACTOR (Num 5))))
+                                            -
+                                            (TERM (FACTOR (Num 3))))
+                                      -
+                                      (TERM (FACTOR (Num 2))))
+                                })))
+            +
+            (TERM (FACTOR sqrt
+                          {
+                          (EXPR (TERM (FACTOR (Num 7))))
+                          }))))
+(ROOT [0,18]
+      (EXPR [0,18]
+            (EXPR [0,13]
+                  (EXPR [0,3]
+                        (TERM [0,3]
+                              (TERM [0,1]
+                                    (FACTOR [0,1]
+                                            (Num [0,1]
+                                                 3)))
+                              *
+                              (FACTOR [2,3]
+                                      (Num [2,3]
+                                           5))))
+                  +
+                  (TERM [4,13]
+                        (TERM [4,5]
+                              (FACTOR [4,5]
+                                      (Num [4,5]
+                                           6)))
+                        *
+                        (FACTOR [6,13]
+                                {
+                                (EXPR [7,12]
+                                      (EXPR [7,10]
+                                            (EXPR [7,8]
+                                                  (TERM [7,8]
+                                                        (FACTOR [7,8]
+                                                                (Num [7,8]
+                                                                     5))))
+                                            -
+                                            (TERM [9,10]
+                                                  (FACTOR [9,10]
+                                                          (Num [9,10]
+                                                               3))))
+                                      -
+                                      (TERM [11,12]
+                                            (FACTOR [11,12]
+                                                    (Num [11,12]
+                                                         2))))
+                                })))
+            +
+            (TERM [14,18]
+                  (FACTOR [14,18]
+                          sqrt
+                          {
+                          (EXPR [16,17]
+                                (TERM [16,17]
+                                      (FACTOR [16,17]
+                                              (Num [16,17]
+                                                   7))))
+                          }))))
+65.52713910236838
+
+>>> parse.py on papa.gr
+(ROOT (S (NP Papa)
+         (VP (V ate)
+             (NP (Det the)
+                 (N caviar)))))
+(ROOT [0,4]
+      (S [0,4]
+         (NP [0,1]
+             Papa)
+         (VP [1,4]
+             (V [1,2]
+                ate)
+             (NP [2,4]
+                 (Det [2,3]
+                      the)
+                 (N [3,4]
+                    caviar)))))
+6.158429362604483
+NONE
+NONE
+(ROOT (S (NP Papa)
+         (VP (VP (V ate)
+                 (NP (Det the)
+                     (N caviar)))
+             (PP (P with)
+                 (NP (Det a)
+                     (N spoon))))))
+(ROOT [0,7]
+      (S [0,7]
+         (NP [0,1]
+             Papa)
+         (VP [1,7]
+             (VP [1,4]
+                 (V [1,2]
+                    ate)
+                 (NP [2,4]
+                     (Det [2,3]
+                          the)
+                     (N [3,4]
+                        caviar)))
+             (PP [4,7]
+                 (P [4,5]
+                    with)
+                 (NP [5,7]
+                     (Det [5,6]
+                          a)
+                     (N [6,7]
+                        spoon))))))
+10.21732305165805
+NONE
+NONE
+NONE
+(ROOT (S (NP (Det the)
+             (N caviar))
+         (VP (V ate)
+             (NP (Det a)
+                 (N spoon)))))
+(ROOT [0,5]
+      (S [0,5]
+         (NP [0,2]
+             (Det [0,1]
+                  the)
+             (N [1,2]
+                caviar))
+         (VP [2,5]
+             (V [2,3]
+                ate)
+             (NP [3,5]
+                 (Det [3,4]
+                      a)
+                 (N [4,5]
+                    spoon)))))
+5.158429362604483
+NONE
+(ROOT (S (NP (Det the)
+             (N caviar))
+         (VP (VP (V ate)
+                 (NP Papa))
+             (PP (P with)
+                 (NP (Det a)
+                     (N spoon))))))
+(ROOT [0,7]
+      (S [0,7]
+         (NP [0,2]
+             (Det [0,1]
+                  the)
+             (N [1,2]
+                caviar))
+         (VP [2,7]
+             (VP [2,4]
+                 (V [2,3]
+                    ate)
+                 (NP [3,4]
+                     Papa))
+             (PP [4,7]
+                 (P [4,5]
+                    with)
+                 (NP [5,7]
+                     (Det [5,6]
+                          a)
+                     (N [6,7]
+                        spoon))))))
+10.21732305165805
+(ROOT (S (NP Papa)
+         (VP (VP (VP (VP (VP (V ate)
+                             (NP (Det the)
+                                 (N caviar)))
+                         (PP (P with)
+                             (NP (Det the)
+                                 (N spoon))))
+                     (PP (P with)
+                         (NP Papa)))
+                 (PP (P with)
+                     (NP (Det a)
+                         (N spoon))))
+             (PP (P with)
+                 (NP (Det the)
+                     (N caviar))))))
+(ROOT [0,15]
+      (S [0,15]
+         (NP [0,1]
+             Papa)
+         (VP [1,15]
+             (VP [1,12]
+                 (VP [1,9]
+                     (VP [1,7]
+                         (VP [1,4]
+                             (V [1,2]
+                                ate)
+                             (NP [2,4]
+                                 (Det [2,3]
+                                      the)
+                                 (N [3,4]
+                                    caviar)))
+                         (PP [4,7]
+                             (P [4,5]
+                                with)
+                             (NP [5,7]
+                                 (Det [5,6]
+                                      the)
+                                 (N [6,7]
+                                    spoon))))
+                     (PP [7,9]
+                         (P [7,8]
+                            with)
+                         (NP [8,9]
+                             Papa)))
+                 (PP [9,12]
+                     (P [9,10]
+                        with)
+                     (NP [10,12]
+                         (Det [10,11]
+                              a)
+                         (N [11,12]
+                            spoon))))
+             (PP [12,15]
+                 (P [12,13]
+                    with)
+                 (NP [13,15]
+                     (Det [13,14]
+                          the)
+                     (N [14,15]
+                        caviar))))))
+23.394004118818756
+
+>>> parse.py on permissive.gr
+(ROOT (A x))
+(ROOT [0,1]
+      (A [0,1]
+         x))
+1.0
+(ROOT (A (A x)
+         (A x)))
+(ROOT [0,2]
+      (A [0,2]
+         (A [0,1]
+            x)
+         (A [1,2]
+            x)))
+3.0
+(ROOT (A (A (A x)
+            (A x))
+         (A x)))
+(ROOT [0,3]
+      (A [0,3]
+         (A [0,2]
+            (A [0,1]
+               x)
+            (A [1,2]
+               x))
+         (A [2,3]
+            x)))
+5.0
+(ROOT (A (A (A (A x)
+               (A x))
+            (A x))
+         (A x)))
+(ROOT [0,4]
+      (A [0,4]
+         (A [0,3]
+            (A [0,2]
+               (A [0,1]
+                  x)
+               (A [1,2]
+                  x))
+            (A [2,3]
+               x))
+         (A [3,4]
+            x)))
+7.0
+(ROOT (A (A (A (A (A x)
+                  (A x))
+               (A x))
+            (A x))
+         (A x)))
+(ROOT [0,5]
+      (A [0,5]
+         (A [0,4]
+            (A [0,3]
+               (A [0,2]
+                  (A [0,1]
+                     x)
+                  (A [1,2]
+                     x))
+               (A [2,3]
+                  x))
+            (A [3,4]
+               x))
+         (A [4,5]
+            x)))
+9.0
+
+>>> parse.py on english.gr
+(ROOT (S (NP Joe)
+         (VP (V (V love)
+                -s)
+             (NP Jill)))
+      .)
+(ROOT [0,5]
+      (S [0,4]
+         (NP [0,1]
+             Joe)
+         (VP [1,4]
+             (V [1,3]
+                (V [1,2]
+                   love)
+                -s)
+             (NP [3,4]
+                 Jill)))
+      .)
+22.97216328571259
+(ROOT (S (NP he)
+         (VP (V (V love)
+                -s)
+             (NP her)))
+      .)
+(ROOT [0,5]
+      (S [0,4]
+         (NP [0,1]
+             he)
+         (VP [1,4]
+             (V [1,3]
+                (V [1,2]
+                   love)
+                -s)
+             (NP [3,4]
+                 her)))
+      .)
+22.97216328571259
+(ROOT (S (NP him)
+         (VP (V (V love)
+                -s)
+             (NP she)))
+      .)
+(ROOT [0,5]
+      (S [0,4]
+         (NP [0,1]
+             him)
+         (VP [1,4]
+             (V [1,3]
+                (V [1,2]
+                   love)
+                -s)
+             (NP [3,4]
+                 she)))
+      .)
+22.97216328571259
+(ROOT (S (NP Papa)
+         (VP (VP (V (V sleep)
+                    -s))
+             (PP (P with)
+                 (NP (Det a)
+                     (N spoon)))))
+      .)
+(ROOT [0,7]
+      (S [0,6]
+         (NP [0,1]
+             Papa)
+         (VP [1,6]
+             (VP [1,3]
+                 (V [1,3]
+                    (V [1,2]
+                       sleep)
+                    -s))
+             (PP [3,6]
+                 (P [3,4]
+                    with)
+                 (NP [4,6]
+                     (Det [4,5]
+                          a)
+                     (N [5,6]
+                        spoon)))))
+      .)
+36.89093612242101
+(ROOT (S (NP Papa)
+         (VP (VP (V (V eat)
+                    -ed))
+             (PP (P with)
+                 (NP (Det a)
+                     (N spoon)))))
+      .)
+(ROOT [0,7]
+      (S [0,6]
+         (NP [0,1]
+             Papa)
+         (VP [1,6]
+             (VP [1,3]
+                 (V [1,3]
+                    (V [1,2]
+                       eat)
+                    -ed))
+             (PP [3,6]
+                 (P [3,4]
+                    with)
+                 (NP [4,6]
+                     (Det [4,5]
+                          a)
+                     (N [5,6]
+                        spoon)))))
+      .)
+34.89093612242101
+(ROOT (S (NP Papa)
+         (VP (V (V sleep)
+                -s)
+             (NP (Det every)
+                 (N (N bonbon)
+                    (PP (P with)
+                        (NP (Det a)
+                            (N spoon)))))))
+      .)
+(ROOT [0,9]
+      (S [0,8]
+         (NP [0,1]
+             Papa)
+         (VP [1,8]
+             (V [1,3]
+                (V [1,2]
+                   sleep)
+                -s)
+             (NP [3,8]
+                 (Det [3,4]
+                      every)
+                 (N [4,8]
+                    (N [4,5]
+                       bonbon)
+                    (PP [5,8]
+                        (P [5,6]
+                           with)
+                        (NP [6,8]
+                            (Det [6,7]
+                                 a)
+                            (N [7,8]
+                               spoon)))))))
+      .)
+48.27366181637662
+(ROOT (S (NP Papa)
+         (VP (V (V eat)
+                -ed)
+             (NP (Det every)
+                 (N (N bonbon)
+                    (PP (P with)
+                        (NP (Det a)
+                            (N spoon)))))))
+      .)
+(ROOT [0,9]
+      (S [0,8]
+         (NP [0,1]
+             Papa)
+         (VP [1,8]
+             (V [1,3]
+                (V [1,2]
+                   eat)
+                -ed)
+             (NP [3,8]
+                 (Det [3,4]
+                      every)
+                 (N [4,8]
+                    (N [4,5]
+                       bonbon)
+                    (PP [5,8]
+                        (P [5,6]
+                           with)
+                        (NP [6,8]
+                            (Det [6,7]
+                                 a)
+                            (N [7,8]
+                               spoon)))))))
+      .)
+46.27366181637662
+(ROOT (VP (V have)
+          (NP (Det a)
+              (N bonbon)))
+      !)
+(ROOT [0,4]
+      (VP [0,3]
+          (V [0,1]
+             have)
+          (NP [1,3]
+              (Det [1,2]
+                   a)
+              (N [2,3]
+                 bonbon)))
+      !)
+20.97216328571259
+(ROOT (S (NP (Det a)
+             (N (N bonbon)
+                (PP (P on)
+                    (NP (Det the)
+                        (N spoon)))))
+         (VP (V (V entice)
+                -s)))
+      .)
+(ROOT [0,8]
+      (S [0,7]
+         (NP [0,5]
+             (Det [0,1]
+                  a)
+             (N [1,5]
+                (N [1,2]
+                   bonbon)
+                (PP [2,5]
+                    (P [2,3]
+                       on)
+                    (NP [3,5]
+                        (Det [3,4]
+                             the)
+                        (N [4,5]
+                           spoon)))))
+         (VP [5,7]
+             (V [5,7]
+                (V [5,6]
+                   entice)
+                -s)))
+      .)
+42.56789042537615
+(ROOT (S (NP (Det a)
+             (N (N bonbon)
+                (PP (P on)
+                    (NP (Det the)
+                        (N spoon)))))
+         (VP (V (V entice)
+                -0)))
+      .)
+(ROOT [0,8]
+      (S [0,7]
+         (NP [0,5]
+             (Det [0,1]
+                  a)
+             (N [1,5]
+                (N [1,2]
+                   bonbon)
+                (PP [2,5]
+                    (P [2,3]
+                       on)
+                    (NP [3,5]
+                        (Det [3,4]
+                             the)
+                        (N [4,5]
+                           spoon)))))
+         (VP [5,7]
+             (V [5,7]
+                (V [5,6]
+                   entice)
+                -0)))
+      .)
+42.56789042537615
+(ROOT (S (NP (Det the)
+             (N (N (N bonbon)
+                   -s)
+                (PP (P on)
+                    (NP (Det the)
+                        (N spoon)))))
+         (VP (V (V entice)
+                -0)))
+      .)
+(ROOT [0,9]
+      (S [0,8]
+         (NP [0,6]
+             (Det [0,1]
+                  the)
+             (N [1,6]
+                (N [1,3]
+                   (N [1,2]
+                      bonbon)
+                   -s)
+                (PP [3,6]
+                    (P [3,4]
+                       on)
+                    (NP [4,6]
+                        (Det [4,5]
+                             the)
+                        (N [5,6]
+                           spoon)))))
+         (VP [6,8]
+             (V [6,8]
+                (V [6,7]
+                   entice)
+                -0)))
+      .)
+45.26386421755093
+(ROOT (S (NP Joe)
+         (VP (V (V kiss)
+                -ed)
+             (NP (Det every)
+                 (N chief
+                    of
+                    staff))))
+      .)
+(ROOT [0,8]
+      (S [0,7]
+         (NP [0,1]
+             Joe)
+         (VP [1,7]
+             (V [1,3]
+                (V [1,2]
+                   kiss)
+                -ed)
+             (NP [3,7]
+                 (Det [3,4]
+                      every)
+                 (N [4,7]
+                    chief
+                    of
+                    staff))))
+      .)
+29.761075912013297
+(ROOT (S (NP Jill)
+         (VP (VP (V (V say)
+                    -s)
+                 (CP that
+                     (S (NP Joe)
+                        (VP (Modal might)
+                            (VP (V sleep))))))
+             (PP (P on)
+                 (NP (Det the)
+                     (N floor)))))
+      !)
+(ROOT [0,11]
+      (S [0,10]
+         (NP [0,1]
+             Jill)
+         (VP [1,10]
+             (VP [1,7]
+                 (V [1,3]
+                    (V [1,2]
+                       say)
+                    -s)
+                 (CP [3,7]
+                     that
+                     (S [4,7]
+                        (NP [4,5]
+                            Joe)
+                        (VP [5,7]
+                            (Modal [5,6]
+                                   might)
+                            (VP [6,7]
+                                (V [6,7]
+                                   sleep))))))
+             (PP [7,10]
+                 (P [7,8]
+                    on)
+                 (NP [8,10]
+                     (Det [8,9]
+                          the)
+                     (N [9,10]
+                        floor)))))
+      !)
+55.29081418034958
+(ROOT (S (NP (Det the)
+             (N (Adj perplexed)
+                (N president)))
+         (VP (V (V eat)
+                -ed)
+             (NP (Det a)
+                 (N pickle))))
+      .)
+(ROOT [0,8]
+      (S [0,7]
+         (NP [0,3]
+             (Det [0,1]
+                  the)
+             (N [1,3]
+                (Adj [1,2]
+                     perplexed)
+                (N [2,3]
+                   president)))
+         (VP [3,7]
+             (V [3,5]
+                (V [3,4]
+                   eat)
+                -ed)
+             (NP [5,7]
+                 (Det [5,6]
+                      a)
+                 (N [6,7]
+                    pickle))))
+      .)
+42.05187527837249
+(ROOT (S (NP Papa)
+         (VP (V is)
+             (Adj perplexed)))
+      .)
+(ROOT [0,4]
+      (S [0,3]
+         (NP [0,1]
+             Papa)
+         (VP [1,3]
+             (V [1,2]
+                is)
+             (Adj [2,3]
+                  perplexed)))
+      .)
+16.98916360729558
+(ROOT (S (NP Papa)
+         (VP (V is)
+             (N chief
+                of
+                staff)))
+      .)
+(ROOT [0,6]
+      (S [0,5]
+         (NP [0,1]
+             Papa)
+         (VP [1,5]
+             (V [1,2]
+                is)
+             (N [2,5]
+                chief
+                of
+                staff)))
+      .)
+17.884123250999505
+(ROOT (S (NP Papa)
+         (VP (V (V want)
+                -ed)
+             (NP (Det a)
+                 (N sandwich))))
+      .)
+(ROOT [0,6]
+      (S [0,5]
+         (NP [0,1]
+             Papa)
+         (VP [1,5]
+             (V [1,3]
+                (V [1,2]
+                   want)
+                -ed)
+             (NP [3,5]
+                 (Det [3,4]
+                      a)
+                 (N [4,5]
+                    sandwich))))
+      .)
+28.17611341129214
+(ROOT (S (NP Papa)
+         (VP (V (V want)
+                -ed)
+             (VP (V to
+                    (V eat))
+                 (NP (Det a)
+                     (N sandwich)))))
+      .)
+(ROOT [0,8]
+      (S [0,7]
+         (NP [0,1]
+             Papa)
+         (VP [1,7]
+             (V [1,3]
+                (V [1,2]
+                   want)
+                -ed)
+             (VP [3,7]
+                 (V [3,5]
+                    to
+                    (V [4,5]
+                       eat))
+                 (NP [5,7]
+                     (Det [5,6]
+                          a)
+                     (N [6,7]
+                        sandwich)))))
+      .)
+38.8381975013513
+(ROOT (S (NP Papa)
+         (VP (V (V want)
+                -ed)
+             (NP Joe)
+             (VP (V to
+                    (V eat))
+                 (NP (Det a)
+                     (N pickle)))))
+      .)
+(ROOT [0,9]
+      (S [0,8]
+         (NP [0,1]
+             Papa)
+         (VP [1,8]
+             (V [1,3]
+                (V [1,2]
+                   want)
+                -ed)
+             (NP [3,4]
+                 Joe)
+             (VP [4,8]
+                 (V [4,6]
+                    to
+                    (V [5,6]
+                       eat))
+                 (NP [6,8]
+                     (Det [6,7]
+                          a)
+                     (N [7,8]
+                        pickle)))))
+      .)
+44.86099818782628
+(ROOT (S (NP Papa)
+         (VP (V (V want)
+                -ed)
+             (NP (Det a)
+                 (N pickle))
+             (VP (V to
+                    (V eat))
+                 (NP Joe))))
+      .)
+(ROOT [0,9]
+      (S [0,8]
+         (NP [0,1]
+             Papa)
+         (VP [1,8]
+             (V [1,3]
+                (V [1,2]
+                   want)
+                -ed)
+             (NP [3,5]
+                 (Det [3,4]
+                      a)
+                 (N [4,5]
+                    pickle))
+             (VP [5,8]
+                 (V [5,7]
+                    to
+                    (V [6,7]
+                       eat))
+                 (NP [7,8]
+                     Joe))))
+      .)
+44.86099818782628
+(ROOT (S (NP Papa)
+         (VP (Modal would)
+             (VP (V have)
+                 (VP (V (V eat)
+                        -ed)
+                     (NP (Det his)
+                         (N (N sandwich)
+                            -s))))))
+      .)
+(ROOT [0,9]
+      (S [0,8]
+         (NP [0,1]
+             Papa)
+         (VP [1,8]
+             (Modal [1,2]
+                    would)
+             (VP [2,8]
+                 (V [2,3]
+                    have)
+                 (VP [3,8]
+                     (V [3,5]
+                        (V [3,4]
+                           eat)
+                        -ed)
+                     (NP [5,8]
+                         (Det [5,6]
+                              his)
+                         (N [6,8]
+                            (N [6,7]
+                               sandwich)
+                            -s))))))
+      .)
+43.8390258750545
+(ROOT (S (NP (Det every)
+             (N sandwich))
+         (VP (V was)
+             (VP (V (V go)
+                    -ing)
+                 (VP (V to
+                        (V have))
+                     (VP (V been)
+                         (Adj delicious))))))
+      .)
+(ROOT [0,10]
+      (S [0,9]
+         (NP [0,2]
+             (Det [0,1]
+                  every)
+             (N [1,2]
+                sandwich))
+         (VP [2,9]
+             (V [2,3]
+                was)
+             (VP [3,9]
+                 (V [3,5]
+                    (V [3,4]
+                       go)
+                    -ing)
+                 (VP [5,9]
+                     (V [5,7]
+                        to
+                        (V [6,7]
+                           have))
+                     (VP [7,9]
+                         (V [7,8]
+                            been)
+                         (Adj [8,9]
+                              delicious))))))
+      .)
+53.67628846906068
+(ROOT (S (NP (NP (Det the)
+                 (N (Adj (Adj fine)
+                         and
+                         (Adj blue))
+                    (N woman)))
+             and
+             (NP (Det every)
+                 (N man)))
+         (VP (Modal must)
+             (VP (VP (V have)
+                     (VP (VP (V (V eat)
+                                -ed)
+                             (NP (Det two)
+                                 (N (N sandwich)
+                                    -s)))
+                         and
+                         (VP (V (V sleep)
+                                -ed))))
+                 (PP (P on)
+                     (NP (Det the)
+                         (N floor))))))
+      .)
+(ROOT [0,22]
+      (S [0,21]
+         (NP [0,8]
+             (NP [0,5]
+                 (Det [0,1]
+                      the)
+                 (N [1,5]
+                    (Adj [1,4]
+                         (Adj [1,2]
+                              fine)
+                         and
+                         (Adj [3,4]
+                              blue))
+                    (N [4,5]
+                       woman)))
+             and
+             (NP [6,8]
+                 (Det [6,7]
+                      every)
+                 (N [7,8]
+                    man)))
+         (VP [8,21]
+             (Modal [8,9]
+                    must)
+             (VP [9,21]
+                 (VP [9,18]
+                     (V [9,10]
+                        have)
+                     (VP [10,18]
+                         (VP [10,15]
+                             (V [10,12]
+                                (V [10,11]
+                                   eat)
+                                -ed)
+                             (NP [12,15]
+                                 (Det [12,13]
+                                      two)
+                                 (N [13,15]
+                                    (N [13,14]
+                                       sandwich)
+                                    -s)))
+                         and
+                         (VP [16,18]
+                             (V [16,18]
+                                (V [16,17]
+                                   sleep)
+                                -ed))))
+                 (PP [18,21]
+                     (P [18,19]
+                        on)
+                     (NP [19,21]
+                         (Det [19,20]
+                              the)
+                         (N [20,21]
+                            floor))))))
+      .)
+112.34389867541994
+
+######################################################
+  Q1: Earley chart for 'time flies like an arrow'
+######################################################
+
+============================================================
+CHART for: time flies like an arrow
+============================================================
+  Sentence: 0:time 1:flies 2:like 3:an 4:arrow
+  Chart has 6 columns (0 to 5)
+
+  === Column 0 (before 'time') ===
+    [ROOT → · S, 0, 0]  w=-0.0000
+    [S → · NP VP, 0, 0]  w=-0.0000
+    [NP → · N N, 0, 0]  w=2.0000
+    [NP → · D N, 0, 0]  w=1.3219
+    [NP → · N, 0, 0]  w=1.5146
+    [N → · time, 0, 0]  w=1.3219
+    [N → · flies, 0, 0]  w=2.3219
+    [N → · arrow, 0, 0]  w=1.3219
+    [D → · an, 0, 0]  w=-0.0000
+
+  === Column 1 (before 'flies') ===
+    [N → time ·, 0, 1]  w=1.3219 ✓
+    [NP → N · N, 0, 1]  w=3.3219
+    [NP → N ·, 0, 1]  w=2.8365 ✓
+    [N → · time, 1, 1]  w=1.3219
+    [N → · flies, 1, 1]  w=2.3219
+    [N → · arrow, 1, 1]  w=1.3219
+    [S → NP · VP, 0, 1]  w=2.8365
+    [VP → · V NP, 1, 1]  w=0.7370
+    [VP → · V ADVP, 1, 1]  w=1.3219
+    [V → · flies, 1, 1]  w=1.0000
+    [V → · like, 1, 1]  w=1.0000
+
+  === Column 2 (before 'like') ===
+    [N → flies ·, 1, 2]  w=2.3219 ✓
+    [V → flies ·, 1, 2]  w=1.0000 ✓
+    [NP → N N ·, 0, 2]  w=5.6439 ✓
+    [VP → V · NP, 1, 2]  w=1.7370
+    [VP → V · ADVP, 1, 2]  w=2.3219
+    [S → NP · VP, 0, 2]  w=5.6439
+    [NP → · N N, 2, 2]  w=2.0000
+    [NP → · D N, 2, 2]  w=1.3219
+    [NP → · N, 2, 2]  w=1.5146
+    [ADVP → · ADV NP, 2, 2]  w=-0.0000
+    [VP → · V NP, 2, 2]  w=0.7370
+    [VP → · V ADVP, 2, 2]  w=1.3219
+    [N → · time, 2, 2]  w=1.3219
+    [N → · flies, 2, 2]  w=2.3219
+    [N → · arrow, 2, 2]  w=1.3219
+    [D → · an, 2, 2]  w=-0.0000
+    [ADV → · like, 2, 2]  w=-0.0000
+    [V → · flies, 2, 2]  w=1.0000
+    [V → · like, 2, 2]  w=1.0000
+
+  === Column 3 (before 'an') ===
+    [ADV → like ·, 2, 3]  w=-0.0000 ✓
+    [V → like ·, 2, 3]  w=1.0000 ✓
+    [ADVP → ADV · NP, 2, 3]  w=-0.0000
+    [VP → V · NP, 2, 3]  w=1.7370
+    [VP → V · ADVP, 2, 3]  w=2.3219
+    [NP → · N N, 3, 3]  w=2.0000
+    [NP → · D N, 3, 3]  w=1.3219
+    [NP → · N, 3, 3]  w=1.5146
+    [ADVP → · ADV NP, 3, 3]  w=-0.0000
+    [N → · time, 3, 3]  w=1.3219
+    [N → · flies, 3, 3]  w=2.3219
+    [N → · arrow, 3, 3]  w=1.3219
+    [D → · an, 3, 3]  w=-0.0000
+    [ADV → · like, 3, 3]  w=-0.0000
+
+  === Column 4 (before 'arrow') ===
+    [D → an ·, 3, 4]  w=-0.0000 ✓
+    [NP → D · N, 3, 4]  w=1.3219
+    [N → · time, 4, 4]  w=1.3219
+    [N → · flies, 4, 4]  w=2.3219
+    [N → · arrow, 4, 4]  w=1.3219
+
+  === Column 5 (end) ===
+    [N → arrow ·, 4, 5]  w=1.3219 ✓
+    [NP → D N ·, 3, 5]  w=2.6439 ✓
+    [ADVP → ADV NP ·, 2, 5]  w=2.6439 ✓
+    [VP → V NP ·, 2, 5]  w=4.3808 ✓
+    [VP → V ADVP ·, 1, 5]  w=4.9658 ✓
+    [S → NP VP ·, 0, 5]  w=7.8023 ✓
+    [ROOT → S ·, 0, 5]  w=7.8023 ✓
+
+(ROOT (S (NP (N time)) (VP (V flies) (ADVP (ADV like) (NP (D an) (N arrow))))))
+(ROOT [0,5] (S [0,5] (NP [0,1] (N [0,1] time)) (VP [1,5] (V [1,2] flies) (ADVP [2,5] (ADV [2,3] like) (NP [3,5] (D [3,4] an) (N [4,5] arrow))))))
+7.802285552379208
+
+######################################################
+  Q2: All parses with probabilities
+######################################################
+
+--- All parses for: time flies like an arrow ---
+Parse 1: probability = 0.004480, weight = 7.802285552379208
+(ROOT [0,5] (S [0,5] (NP [0,1] (N [0,1] time)) (VP [1,5] (V [1,2] flies) (ADVP [2,5] (ADV [2,3] like) (NP [3,5] (D [3,4] an) (N [4,5] arrow))))))
+Parse 2: probability = 0.000960, weight = 10.024677973715654
+(ROOT [0,5] (S [0,5] (NP [0,2] (N [0,1] time) (N [1,2] flies)) (VP [2,5] (V [2,3] like) (NP [3,5] (D [3,4] an) (N [4,5] arrow)))))
+--- Total: 2 parse(s) ---
+
+
+>>> Best parse (with spans):
+(ROOT (S (NP (N time))
+         (VP (V flies)
+             (ADVP (ADV like)
+                   (NP (D an)
+                       (N arrow))))))
+(ROOT [0,5]
+      (S [0,5]
+         (NP [0,1]
+             (N [0,1]
+                time))
+         (VP [1,5]
+             (V [1,2]
+                flies)
+             (ADVP [2,5]
+                   (ADV [2,3]
+                        like)
+                   (NP [3,5]
+                       (D [3,4]
+                          an)
+                       (N [4,5]
+                          arrow))))))
+7.802285552379208
+
+######################################################
+  Q3: Chart + all parses for soldier grammar
+######################################################
+
+============================================================
+CHART for: the man shot the soldier with a gun
+============================================================
+  Sentence: 0:the 1:man 2:shot 3:the 4:soldier 5:with 6:a 7:gun
+  Chart has 9 columns (0 to 8)
+
+  === Column 0 (before 'the') ===
+    [ROOT → · S, 0, 0]  w=-0.0000
+    [S → · NP VP, 0, 0]  w=-0.0000
+    [NP → · Det N, 0, 0]  w=0.7370
+    [NP → · NP PP, 0, 0]  w=1.3219
+    [Det → · the, 0, 0]  w=1.0000
+    [Det → · a, 0, 0]  w=1.0000
+
+  === Column 1 (before 'man') ===
+    [Det → the ·, 0, 1]  w=1.0000 ✓
+    [NP → Det · N, 0, 1]  w=1.7370
+    [N → · man, 1, 1]  w=1.3219
+    [N → · soldier, 1, 1]  w=1.7370
+    [N → · gun, 1, 1]  w=1.7370
+
+  === Column 2 (before 'shot') ===
+    [N → man ·, 1, 2]  w=1.3219 ✓
+    [NP → Det N ·, 0, 2]  w=3.0589 ✓
+    [S → NP · VP, 0, 2]  w=3.0589
+    [NP → NP · PP, 0, 2]  w=4.3808
+    [VP → · V NP, 2, 2]  w=0.7370
+    [VP → · VP PP, 2, 2]  w=1.3219
+    [PP → · P NP, 2, 2]  w=-0.0000
+    [V → · shot, 2, 2]  w=-0.0000
+    [P → · with, 2, 2]  w=-0.0000
+
+  === Column 3 (before 'the') ===
+    [V → shot ·, 2, 3]  w=-0.0000 ✓
+    [VP → V · NP, 2, 3]  w=0.7370
+    [NP → · Det N, 3, 3]  w=0.7370
+    [NP → · NP PP, 3, 3]  w=1.3219
+    [Det → · the, 3, 3]  w=1.0000
+    [Det → · a, 3, 3]  w=1.0000
+
+  === Column 4 (before 'soldier') ===
+    [Det → the ·, 3, 4]  w=1.0000 ✓
+    [NP → Det · N, 3, 4]  w=1.7370
+    [N → · man, 4, 4]  w=1.3219
+    [N → · soldier, 4, 4]  w=1.7370
+    [N → · gun, 4, 4]  w=1.7370
+
+  === Column 5 (before 'with') ===
+    [N → soldier ·, 4, 5]  w=1.7370 ✓
+    [NP → Det N ·, 3, 5]  w=3.4739 ✓
+    [VP → V NP ·, 2, 5]  w=4.2109 ✓
+    [NP → NP · PP, 3, 5]  w=4.7959
+    [S → NP VP ·, 0, 5]  w=7.2698 ✓
+    [VP → VP · PP, 2, 5]  w=5.5328
+    [PP → · P NP, 5, 5]  w=-0.0000
+    [ROOT → S ·, 0, 5]  w=7.2698 ✓
+    [P → · with, 5, 5]  w=-0.0000
+
+  === Column 6 (before 'a') ===
+    [P → with ·, 5, 6]  w=-0.0000 ✓
+    [PP → P · NP, 5, 6]  w=-0.0000
+    [NP → · Det N, 6, 6]  w=0.7370
+    [NP → · NP PP, 6, 6]  w=1.3219
+    [Det → · the, 6, 6]  w=1.0000
+    [Det → · a, 6, 6]  w=1.0000
+
+  === Column 7 (before 'gun') ===
+    [Det → a ·, 6, 7]  w=1.0000 ✓
+    [NP → Det · N, 6, 7]  w=1.7370
+    [N → · man, 7, 7]  w=1.3219
+    [N → · soldier, 7, 7]  w=1.7370
+    [N → · gun, 7, 7]  w=1.7370
+
+  === Column 8 (end) ===
+    [N → gun ·, 7, 8]  w=1.7370 ✓
+    [NP → Det N ·, 6, 8]  w=3.4739 ✓
+    [PP → P NP ·, 5, 8]  w=3.4739 ✓
+    [NP → NP · PP, 6, 8]  w=4.7959
+    [NP → NP PP ·, 3, 8]  w=8.2698 ✓
+    [VP → VP PP ·, 2, 8]  w=9.0068 ✓
+    [PP → · P NP, 8, 8]  w=-0.0000
+    [VP → V NP ·, 2, 8]  w=9.0068 ✓
+    [NP → NP · PP, 3, 8]  w=9.5917
+    [S → NP VP ·, 0, 8]  w=12.0656 ✓
+    [VP → VP · PP, 2, 8]  w=10.3287
+    [P → · with, 8, 8]  w=-0.0000
+    [ROOT → S ·, 0, 8]  w=12.0656 ✓
+
+(ROOT (S (NP (Det the) (N man)) (VP (VP (V shot) (NP (Det the) (N soldier))) (PP (P with) (NP (Det a) (N gun))))))
+(ROOT [0,8] (S [0,8] (NP [0,2] (Det [0,1] the) (N [1,2] man)) (VP [2,8] (VP [2,5] (V [2,3] shot) (NP [3,5] (Det [3,4] the) (N [4,5] soldier))) (PP [5,8] (P [5,6] with) (NP [6,8] (Det [6,7] a) (N [7,8] gun))))))
+12.065649754771961
+
+
+--- All parses for: the man shot the soldier with a gun ---
+Parse 1: probability = 0.000233, weight = 12.065649754771961
+(ROOT [0,8] (S [0,8] (NP [0,2] (Det [0,1] the) (N [1,2] man)) (VP [2,8] (VP [2,5] (V [2,3] shot) (NP [3,5] (Det [3,4] the) (N [4,5] soldier))) (PP [5,8] (P [5,6] with) (NP [6,8] (Det [6,7] a) (N [7,8] gun))))))
+Parse 2: probability = 0.000233, weight = 12.065649754771961
+(ROOT [0,8] (S [0,8] (NP [0,2] (Det [0,1] the) (N [1,2] man)) (VP [2,8] (V [2,3] shot) (NP [3,8] (NP [3,5] (Det [3,4] the) (N [4,5] soldier)) (PP [5,8] (P [5,6] with) (NP [6,8] (Det [6,7] a) (N [7,8] gun)))))))
+--- Total: 2 parse(s) ---
+
+
+>>> Best parse (with spans):
+(ROOT (S (NP (Det the)
+             (N man))
+         (VP (VP (V shot)
+                 (NP (Det the)
+                     (N soldier)))
+             (PP (P with)
+                 (NP (Det a)
+                     (N gun))))))
+(ROOT [0,8]
+      (S [0,8]
+         (NP [0,2]
+             (Det [0,1]
+                  the)
+             (N [1,2]
+                man))
+         (VP [2,8]
+             (VP [2,5]
+                 (V [2,3]
+                    shot)
+                 (NP [3,5]
+                     (Det [3,4]
+                          the)
+                     (N [4,5]
+                        soldier)))
+             (PP [5,8]
+                 (P [5,6]
+                    with)
+                 (NP [6,8]
+                     (Det [6,7]
+                          a)
+                     (N [7,8]
+                        gun))))))
+12.065649754771961
+
+######################################################
+  parse2 correctness check on arith.gr
+######################################################
+(ROOT [0,1] (EXPR [0,1] (TERM [0,1] (FACTOR [0,1] (Num [0,1] 3)))))
+8.455324334921691
+NONE
+(ROOT [0,3] (EXPR [0,3] (TERM [0,3] (TERM [0,1] (FACTOR [0,1] (Num [0,1] 3))) * (FACTOR [2,3] (Num [2,3] 5)))))
+15.325693382592382
+(ROOT [0,18] (EXPR [0,18] (EXPR [0,13] (EXPR [0,3] (TERM [0,3] (TERM [0,1] (FACTOR [0,1] (Num [0,1] 3))) * (FACTOR [2,3] (Num [2,3] 5)))) + (TERM [4,13] (TERM [4,5] (FACTOR [4,5] (Num [4,5] 6))) * (FACTOR [6,13] { (EXPR [7,12] (EXPR [7,10] (EXPR [7,8] (TERM [7,8] (FACTOR [7,8] (Num [7,8] 5)))) - (TERM [9,10] (FACTOR [9,10] (Num [9,10] 3)))) - (TERM [11,12] (FACTOR [11,12] (Num [11,12] 2)))) }))) + (TERM [14,18] (FACTOR [14,18] sqrt { (EXPR [16,17] (TERM [16,17] (FACTOR [16,17] (Num [16,17] 7)))) }))))
+65.52713910236838
+
+######################################################
+  parse2 on wallstreet.gr (may take a few minutes)
+######################################################
+(ROOT [0,4] (S [0,4] (NP [0,1] (NPR [0,1] (NNP [0,1] John))) (VP [1,3] (VBZ [1,2] is) (ADJP-PRD [2,3] (JJ [2,3] happy))) (PUNC. [3,4] .)))
+34.22401061796059
+(ROOT [0,11] (S [0,11] (NP [0,4] (DT [0,1] The) (ADJP [1,3] (RB [1,2] very) (JJS [2,3] biggest)) (NNS [3,4] companies)) (VP [4,10] (VBP [4,5] are) (RB [5,6] not) (ADVP [6,7] (RB [6,7] likely)) (VP [7,10] (TO [7,8] to) (VP [8,10] (VB [8,9] go) (PP [9,10] (IN [9,10] under))))) (PUNC. [10,11] .)))
+104.90922564708923
+(ROOT [0,10] (S [0,10] (NP [0,2] (DT [0,1] The) (NN [1,2] market)) (VP [2,10] (VBZ [2,3] is) (VP [3,10] (VBG [3,4] wondering) (SBAR [4,10] (WHNP [4,5] (WP [4,5] what)) (S [5,10] (NP [5,7] (NPRS [5,7] (NNP [5,6] General) (NNPS [6,7] Motors))) (VP [7,9] (VBZ [7,8] has) (VP [8,9] (VBN [8,9] done))) (PUNC. [9,10] .)))))))
+94.58118488252406
+(ROOT [0,16] (S [0,16] (PP [0,3] (IN [0,1] In) (NP [1,3] (JJ [1,2] recent) (NNS [2,3] years))) , (NP [4,5] (NN [4,5] pay)) (VP [5,15] (VBD [5,6] surged) (SBAR [6,15] (IN [6,7] as) (S [7,15] (NP [7,8] (NN [7,8] demand)) (VP [8,15] (VBD [8,9] rose) (SBAR [9,15] (IN [9,10] while) (S [10,15] (NP [10,11] (NNS [10,11] workers)) (VP [11,15] (VBN [11,12] left) (PP [12,15] (IN [12,13] for) (NP [13,15] (JJR [13,14] easier) (NNS [14,15] jobs)))))))))) (PUNC. [15,16] .)))
+161.81896046511673
+(ROOT [0,18] (S [0,18] (S-ADV [0,3] (VP [0,3] (VBN [0,1] caught) (PRT [1,2] (RP [1,2] off)) (NP [2,3] (NN [2,3] guard)))) , (NP [4,7] (NPR [4,7] (NNP [4,5] Ford) (NNP [5,6] Motor) (NNP [6,7] Co.))) (VP [7,17] (VBD [7,8] had) (NP [8,10] (DT [8,9] no) (NN [9,10] choice)) (PP [10,14] (IN [10,11] except) (S-NOM [11,14] (VP [11,14] (TO [11,12] to) (VP [12,14] (VB [12,13] follow) (NP [13,14] (NN [13,14] suit)))))) (PP [14,17] (IN [14,15] with) (NP [15,17] (NN [15,16] financing) (NNS [16,17] deals)))) (PUNC. [17,18] .)))
+191.39053946140734
+(ROOT [0,23] (S [0,23] (NP [0,1] (NNS [0,1] data)) (VP [1,22] (VBP [1,2] show) (SBAR [2,22] (WHNP [2,3] (WDT [2,3] that)) (S [3,22] (VP [3,22] (VB [3,4] pay) (VP [4,22] (VBD [4,5] was) (ADJP-PRD [5,14] (JJ [5,6] flat) (PP [6,14] (IN [6,7] for) (NP [7,14] (NP [7,11] (DT [7,8] the) (JJ [8,9] third) (JJ [9,10] consecutive) (NN [10,11] quarter)) (PP [11,14] (IN [11,12] after) (NP [12,14] (DT [12,13] a) (NN [13,14] rash)))))) (PP [14,22] (IN [14,15] of) (NP [15,22] (QP [15,20] (QP [15,16] (CD [15,16] 4)) (NN [16,17] %) (PP [17,20] (TO [17,18] to) (NP [18,20] (QP [18,19] (CD [18,19] 5)) (NN [19,20] %)))) (JJ [20,21] annualized) (NNS [21,22] increases)))))))) (PUNC. [22,23] .)))
+212.54526590959662
+(ROOT [0,39] (S [0,39] (VP [0,39] (VBG [0,1] running) (S [1,39] (NP [1,4] (DT [1,2] the) (JJ [2,3] combined) (NNS [3,4] companies)) , (S-ADV [5,24] (VP [5,24] (VBD [5,6] projected) (VP [6,24] (TO [6,7] to) (VP [7,24] (VBP [7,8] have) (RB [8,9] nearly) (NP-PRD [9,24] (NP [9,12] (QP [9,11] (CD [9,10] 22) (CD [10,11] million)) (NNS [11,12] subscribers)) (PP [12,15] (IN [12,13] by) (NP [13,15] (DT [13,14] the) (NN [14,15] time))) (SBAR [15,24] (S [15,24] (NP [15,17] (DT [15,16] the) (NN [16,17] deal)) (VP [17,24] (VBZ [17,18] is) (VP [18,24] (VBN [18,19] slated) (VP [19,24] (TO [19,20] to) (VP [20,24] (VB [20,21] close) (PP [21,24] (IN [21,22] in) (NP [22,24] (DT [22,23] a) (NN [23,24] year)))))))))))))) , (VP [25,38] (VBZ [25,26] is) (RB [26,27] likely) (VP [27,38] (TO [27,28] to) (VP [28,38] (VB [28,29] pose) (NP [29,32] (JJ [29,30] extraordinary) (NN [30,31] management) (NNS [31,32] questions)) , (S-ADV [33,38] (VP [33,38] (VBG [33,34] according) (PP [34,38] (TO [34,35] to) (NP [35,38] (NPR [35,37] (NNP [35,36] Wall) (NNP [36,37] Street)) (NP [37,38] (NNS [37,38] analysts))))))))) (PUNC. [38,39] .)))))
+349.1325358405936
+(ROOT [0,37] (S [0,37] (NP [0,4] (DT [0,1] a) (JJ [1,2] senior) (NN [2,3] intelligence) (NN [3,4] official)) (VP [4,37] (VBD [4,5] said) (SBAR [5,37] (S [5,37] (NP [5,7] (DT [5,6] the) (NN [6,7] administration)) (VP [7,37] (VBN [7,8] considered) (S [8,37] (SBAR-TMP [8,24] (WHADVP [8,10] (WRB [8,9] how) (RB [9,10] strongly)) (S [10,24] (NP [10,11] (PRP [10,11] it)) (VP [11,24] (VBD [11,12] was) (VP [12,24] (VBN [12,13] criticized) (PP [13,24] (IN [13,14] for) (S-NOM [14,24] (VP [14,24] (VBG [14,15] issuing) (NP [15,21] (DT [15,16] a) (JJ [16,17] similar) (ADJP [17,20] (ADVP [17,19] (RBR [17,18] less) (IN [18,19] than)) (JJ [19,20] specific)) (NN [20,21] warning)) (PP [21,24] (IN [21,22] on) (NP [22,24] (NPR [22,23] (NNP [22,23] Oct.)) (QP [23,24] (CD [23,24] 11))))))))))) , (NP [25,29] (ADJP [25,27] (RB [25,26] then) (VBN [26,27] decided)) (DT [27,28] the) (NN [28,29] information)) (VP [29,36] (VBD [29,30] was) (RB [30,31] too) (ADJP-PRD [31,36] (JJ [31,32] serious) (S [32,36] (VP [32,36] (TO [32,33] to) (VP [33,36] (VB [33,34] keep) (PP [34,36] (IN [34,35] under) (S-NOM [35,36] (VP [35,36] (VB [35,36] cover))))))))) (PUNC. [36,37] .))))))))
+385.74392102995995
+(ROOT [0,19] (S [0,19] (PUNC`` [0,1] ``) (S-TPC [1,13] (NP [1,2] (PRP [1,2] It)) (VP [2,13] (VP [2,5] (VBZ [2,3] 's) (ADJP-PRD [3,5] (RB [3,4] very) (JJ [4,5] real))) , (ADVP [6,8] (RB [6,7] otherwise) (NP [7,8] (PRP [7,8] we))) (VP [8,13] (MD [8,9] would) (RB [9,10] n't) (VP [10,13] (VB [10,11] be) (VP [11,13] (VBG [11,12] doing) (NP [12,13] (PRP [12,13] it))))))) , (PUNC'' [14,15] '') (NP [15,17] (DT [15,16] this) (NN [16,17] official)) (VP [17,18] (VBD [17,18] said)) (PUNC. [18,19] .)))
+144.11275128802328
+
+>>> Pretty-printed wallstreet parses:
+(ROOT [0,4]
+      (S [0,4]
+         (NP [0,1]
+             (NPR [0,1]
+                  (NNP [0,1]
+                       John)))
+         (VP [1,3]
+             (VBZ [1,2]
+                  is)
+             (ADJP-PRD [2,3]
+                       (JJ [2,3]
+                           happy)))
+         (PUNC. [3,4]
+                .)))
+34.22401061796059
+(ROOT [0,11]
+      (S [0,11]
+         (NP [0,4]
+             (DT [0,1]
+                 The)
+             (ADJP [1,3]
+                   (RB [1,2]
+                       very)
+                   (JJS [2,3]
+                        biggest))
+             (NNS [3,4]
+                  companies))
+         (VP [4,10]
+             (VBP [4,5]
+                  are)
+             (RB [5,6]
+                 not)
+             (ADVP [6,7]
+                   (RB [6,7]
+                       likely))
+             (VP [7,10]
+                 (TO [7,8]
+                     to)
+                 (VP [8,10]
+                     (VB [8,9]
+                         go)
+                     (PP [9,10]
+                         (IN [9,10]
+                             under)))))
+         (PUNC. [10,11]
+                .)))
+104.90922564708923
+(ROOT [0,10]
+      (S [0,10]
+         (NP [0,2]
+             (DT [0,1]
+                 The)
+             (NN [1,2]
+                 market))
+         (VP [2,10]
+             (VBZ [2,3]
+                  is)
+             (VP [3,10]
+                 (VBG [3,4]
+                      wondering)
+                 (SBAR [4,10]
+                       (WHNP [4,5]
+                             (WP [4,5]
+                                 what))
+                       (S [5,10]
+                          (NP [5,7]
+                              (NPRS [5,7]
+                                    (NNP [5,6]
+                                         General)
+                                    (NNPS [6,7]
+                                          Motors)))
+                          (VP [7,9]
+                              (VBZ [7,8]
+                                   has)
+                              (VP [8,9]
+                                  (VBN [8,9]
+                                       done)))
+                          (PUNC. [9,10]
+                                 .)))))))
+94.58118488252406
+(ROOT [0,16]
+      (S [0,16]
+         (PP [0,3]
+             (IN [0,1]
+                 In)
+             (NP [1,3]
+                 (JJ [1,2]
+                     recent)
+                 (NNS [2,3]
+                      years)))
+         ,
+         (NP [4,5]
+             (NN [4,5]
+                 pay))
+         (VP [5,15]
+             (VBD [5,6]
+                  surged)
+             (SBAR [6,15]
+                   (IN [6,7]
+                       as)
+                   (S [7,15]
+                      (NP [7,8]
+                          (NN [7,8]
+                              demand))
+                      (VP [8,15]
+                          (VBD [8,9]
+                               rose)
+                          (SBAR [9,15]
+                                (IN [9,10]
+                                    while)
+                                (S [10,15]
+                                   (NP [10,11]
+                                       (NNS [10,11]
+                                            workers))
+                                   (VP [11,15]
+                                       (VBN [11,12]
+                                            left)
+                                       (PP [12,15]
+                                           (IN [12,13]
+                                               for)
+                                           (NP [13,15]
+                                               (JJR [13,14]
+                                                    easier)
+                                               (NNS [14,15]
+                                                    jobs))))))))))
+         (PUNC. [15,16]
+                .)))
+161.81896046511673
+(ROOT [0,18]
+      (S [0,18]
+         (S-ADV [0,3]
+                (VP [0,3]
+                    (VBN [0,1]
+                         caught)
+                    (PRT [1,2]
+                         (RP [1,2]
+                             off))
+                    (NP [2,3]
+                        (NN [2,3]
+                            guard))))
+         ,
+         (NP [4,7]
+             (NPR [4,7]
+                  (NNP [4,5]
+                       Ford)
+                  (NNP [5,6]
+                       Motor)
+                  (NNP [6,7]
+                       Co.)))
+         (VP [7,17]
+             (VBD [7,8]
+                  had)
+             (NP [8,10]
+                 (DT [8,9]
+                     no)
+                 (NN [9,10]
+                     choice))
+             (PP [10,14]
+                 (IN [10,11]
+                     except)
+                 (S-NOM [11,14]
+                        (VP [11,14]
+                            (TO [11,12]
+                                to)
+                            (VP [12,14]
+                                (VB [12,13]
+                                    follow)
+                                (NP [13,14]
+                                    (NN [13,14]
+                                        suit))))))
+             (PP [14,17]
+                 (IN [14,15]
+                     with)
+                 (NP [15,17]
+                     (NN [15,16]
+                         financing)
+                     (NNS [16,17]
+                          deals))))
+         (PUNC. [17,18]
+                .)))
+191.39053946140734
+(ROOT [0,23]
+      (S [0,23]
+         (NP [0,1]
+             (NNS [0,1]
+                  data))
+         (VP [1,22]
+             (VBP [1,2]
+                  show)
+             (SBAR [2,22]
+                   (WHNP [2,3]
+                         (WDT [2,3]
+                              that))
+                   (S [3,22]
+                      (VP [3,22]
+                          (VB [3,4]
+                              pay)
+                          (VP [4,22]
+                              (VBD [4,5]
+                                   was)
+                              (ADJP-PRD [5,14]
+                                        (JJ [5,6]
+                                            flat)
+                                        (PP [6,14]
+                                            (IN [6,7]
+                                                for)
+                                            (NP [7,14]
+                                                (NP [7,11]
+                                                    (DT [7,8]
+                                                        the)
+                                                    (JJ [8,9]
+                                                        third)
+                                                    (JJ [9,10]
+                                                        consecutive)
+                                                    (NN [10,11]
+                                                        quarter))
+                                                (PP [11,14]
+                                                    (IN [11,12]
+                                                        after)
+                                                    (NP [12,14]
+                                                        (DT [12,13]
+                                                            a)
+                                                        (NN [13,14]
+                                                            rash))))))
+                              (PP [14,22]
+                                  (IN [14,15]
+                                      of)
+                                  (NP [15,22]
+                                      (QP [15,20]
+                                          (QP [15,16]
+                                              (CD [15,16]
+                                                  4))
+                                          (NN [16,17]
+                                              %)
+                                          (PP [17,20]
+                                              (TO [17,18]
+                                                  to)
+                                              (NP [18,20]
+                                                  (QP [18,19]
+                                                      (CD [18,19]
+                                                          5))
+                                                  (NN [19,20]
+                                                      %))))
+                                      (JJ [20,21]
+                                          annualized)
+                                      (NNS [21,22]
+                                           increases))))))))
+         (PUNC. [22,23]
+                .)))
+212.54526590959662
+(ROOT [0,39]
+      (S [0,39]
+         (VP [0,39]
+             (VBG [0,1]
+                  running)
+             (S [1,39]
+                (NP [1,4]
+                    (DT [1,2]
+                        the)
+                    (JJ [2,3]
+                        combined)
+                    (NNS [3,4]
+                         companies))
+                ,
+                (S-ADV [5,24]
+                       (VP [5,24]
+                           (VBD [5,6]
+                                projected)
+                           (VP [6,24]
+                               (TO [6,7]
+                                   to)
+                               (VP [7,24]
+                                   (VBP [7,8]
+                                        have)
+                                   (RB [8,9]
+                                       nearly)
+                                   (NP-PRD [9,24]
+                                           (NP [9,12]
+                                               (QP [9,11]
+                                                   (CD [9,10]
+                                                       22)
+                                                   (CD [10,11]
+                                                       million))
+                                               (NNS [11,12]
+                                                    subscribers))
+                                           (PP [12,15]
+                                               (IN [12,13]
+                                                   by)
+                                               (NP [13,15]
+                                                   (DT [13,14]
+                                                       the)
+                                                   (NN [14,15]
+                                                       time)))
+                                           (SBAR [15,24]
+                                                 (S [15,24]
+                                                    (NP [15,17]
+                                                        (DT [15,16]
+                                                            the)
+                                                        (NN [16,17]
+                                                            deal))
+                                                    (VP [17,24]
+                                                        (VBZ [17,18]
+                                                             is)
+                                                        (VP [18,24]
+                                                            (VBN [18,19]
+                                                                 slated)
+                                                            (VP [19,24]
+                                                                (TO [19,20]
+                                                                    to)
+                                                                (VP [20,24]
+                                                                    (VB [20,21]
+                                                                        close)
+                                                                    (PP [21,24]
+                                                                        (IN [21,22]
+                                                                            in)
+                                                                        (NP [22,24]
+                                                                            (DT [22,23]
+                                                                                a)
+                                                                            (NN [23,24]
+                                                                                year))))))))))))))
+                ,
+                (VP [25,38]
+                    (VBZ [25,26]
+                         is)
+                    (RB [26,27]
+                        likely)
+                    (VP [27,38]
+                        (TO [27,28]
+                            to)
+                        (VP [28,38]
+                            (VB [28,29]
+                                pose)
+                            (NP [29,32]
+                                (JJ [29,30]
+                                    extraordinary)
+                                (NN [30,31]
+                                    management)
+                                (NNS [31,32]
+                                     questions))
+                            ,
+                            (S-ADV [33,38]
+                                   (VP [33,38]
+                                       (VBG [33,34]
+                                            according)
+                                       (PP [34,38]
+                                           (TO [34,35]
+                                               to)
+                                           (NP [35,38]
+                                               (NPR [35,37]
+                                                    (NNP [35,36]
+                                                         Wall)
+                                                    (NNP [36,37]
+                                                         Street))
+                                               (NP [37,38]
+                                                   (NNS [37,38]
+                                                        analysts)))))))))
+                (PUNC. [38,39]
+                       .)))))
+349.1325358405936
+(ROOT [0,37]
+      (S [0,37]
+         (NP [0,4]
+             (DT [0,1]
+                 a)
+             (JJ [1,2]
+                 senior)
+             (NN [2,3]
+                 intelligence)
+             (NN [3,4]
+                 official))
+         (VP [4,37]
+             (VBD [4,5]
+                  said)
+             (SBAR [5,37]
+                   (S [5,37]
+                      (NP [5,7]
+                          (DT [5,6]
+                              the)
+                          (NN [6,7]
+                              administration))
+                      (VP [7,37]
+                          (VBN [7,8]
+                               considered)
+                          (S [8,37]
+                             (SBAR-TMP [8,24]
+                                       (WHADVP [8,10]
+                                               (WRB [8,9]
+                                                    how)
+                                               (RB [9,10]
+                                                   strongly))
+                                       (S [10,24]
+                                          (NP [10,11]
+                                              (PRP [10,11]
+                                                   it))
+                                          (VP [11,24]
+                                              (VBD [11,12]
+                                                   was)
+                                              (VP [12,24]
+                                                  (VBN [12,13]
+                                                       criticized)
+                                                  (PP [13,24]
+                                                      (IN [13,14]
+                                                          for)
+                                                      (S-NOM [14,24]
+                                                             (VP [14,24]
+                                                                 (VBG [14,15]
+                                                                      issuing)
+                                                                 (NP [15,21]
+                                                                     (DT [15,16]
+                                                                         a)
+                                                                     (JJ [16,17]
+                                                                         similar)
+                                                                     (ADJP [17,20]
+                                                                           (ADVP [17,19]
+                                                                                 (RBR [17,18]
+                                                                                      less)
+                                                                                 (IN [18,19]
+                                                                                     than))
+                                                                           (JJ [19,20]
+                                                                               specific))
+                                                                     (NN [20,21]
+                                                                         warning))
+                                                                 (PP [21,24]
+                                                                     (IN [21,22]
+                                                                         on)
+                                                                     (NP [22,24]
+                                                                         (NPR [22,23]
+                                                                              (NNP [22,23]
+                                                                                   Oct.))
+                                                                         (QP [23,24]
+                                                                             (CD [23,24]
+                                                                                 11)))))))))))
+                             ,
+                             (NP [25,29]
+                                 (ADJP [25,27]
+                                       (RB [25,26]
+                                           then)
+                                       (VBN [26,27]
+                                            decided))
+                                 (DT [27,28]
+                                     the)
+                                 (NN [28,29]
+                                     information))
+                             (VP [29,36]
+                                 (VBD [29,30]
+                                      was)
+                                 (RB [30,31]
+                                     too)
+                                 (ADJP-PRD [31,36]
+                                           (JJ [31,32]
+                                               serious)
+                                           (S [32,36]
+                                              (VP [32,36]
+                                                  (TO [32,33]
+                                                      to)
+                                                  (VP [33,36]
+                                                      (VB [33,34]
+                                                          keep)
+                                                      (PP [34,36]
+                                                          (IN [34,35]
+                                                              under)
+                                                          (S-NOM [35,36]
+                                                                 (VP [35,36]
+                                                                     (VB [35,36]
+                                                                         cover)))))))))
+                             (PUNC. [36,37]
+                                    .))))))))
+385.74392102995995
+(ROOT [0,19]
+      (S [0,19]
+         (PUNC`` [0,1]
+                 ``)
+         (S-TPC [1,13]
+                (NP [1,2]
+                    (PRP [1,2]
+                         It))
+                (VP [2,13]
+                    (VP [2,5]
+                        (VBZ [2,3]
+                             's)
+                        (ADJP-PRD [3,5]
+                                  (RB [3,4]
+                                      very)
+                                  (JJ [4,5]
+                                      real)))
+                    ,
+                    (ADVP [6,8]
+                          (RB [6,7]
+                              otherwise)
+                          (NP [7,8]
+                              (PRP [7,8]
+                                   we)))
+                    (VP [8,13]
+                        (MD [8,9]
+                            would)
+                        (RB [9,10]
+                            n't)
+                        (VP [10,13]
+                            (VB [10,11]
+                                be)
+                            (VP [11,13]
+                                (VBG [11,12]
+                                     doing)
+                                (NP [12,13]
+                                    (PRP [12,13]
+                                         it)))))))
+         ,
+         (PUNC'' [14,15]
+                 '')
+         (NP [15,17]
+             (DT [15,16]
+                 this)
+             (NN [16,17]
+                 official))
+         (VP [17,18]
+             (VBD [17,18]
+                  said))
+         (PUNC. [18,19]
+                .)))
+144.11275128802328
+
+==========================================
+  Done. Report data saved to:
+    q1_chart.txt       — full chart for Q1
+    q2_all_parses.txt  — all parses for Q2
+    q3_chart.txt       — full chart for Q3
+    q3_all_parses.txt  — all parses for Q3
+    wallstreet.par     — wallstreet output
+==========================================

@@ -1,0 +1,6 @@
+--- All parses for: the man shot the soldier with a gun ---
+Parse 1: probability = 0.000231, weight = 12.077245584244288
+(ROOT [0,8] (S [0,8] (NP [0,2] (Det [0,1] the) (N [1,2] man)) (VP [2,8] (V [2,3] shot) (NP [3,8] (NP [3,5] (Det [3,4] the) (N [4,5] soldier)) (PP [5,8] (P [5,6] with) (NP [6,8] (Det [6,7] a) (N [7,8] gun)))))))
+Parse 2: probability = 0.000093, weight = 13.39917367913165
+(ROOT [0,8] (S [0,8] (NP [0,2] (Det [0,1] the) (N [1,2] man)) (VP [2,8] (VP [2,5] (V [2,3] shot) (NP [3,5] (Det [3,4] the) (N [4,5] soldier))) (PP [5,8] (P [5,6] with) (NP [6,8] (Det [6,7] a) (N [7,8] gun))))))
+--- Total: 2 parse(s) ---

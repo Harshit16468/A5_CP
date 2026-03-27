@@ -1,0 +1,6 @@
+--- All parses for: time flies like an arrow ---
+Parse 1: probability = 0.004480, weight = 7.802285552379208
+(ROOT [0,5] (S [0,5] (NP [0,1] (N [0,1] time)) (VP [1,5] (V [1,2] flies) (ADVP [2,5] (ADV [2,3] like) (NP [3,5] (D [3,4] an) (N [4,5] arrow))))))
+Parse 2: probability = 0.000960, weight = 10.024677973715654
+(ROOT [0,5] (S [0,5] (NP [0,2] (N [0,1] time) (N [1,2] flies)) (VP [2,5] (V [2,3] like) (NP [3,5] (D [3,4] an) (N [4,5] arrow)))))
+--- Total: 2 parse(s) ---

@@ -1,0 +1,51 @@
+CHART for: time flies like an arrow
+  === Column 0 ===
+    [ROOT -> . S, 0] w=-0.0000
+    [S -> . NP VP, 0] w=-0.0000
+    [NP -> . N N, 0] w=2.0000
+    [NP -> . N, 0] w=1.5146
+    [N -> . time, 0] w=1.3219
+  === Column 1 ===
+    [N -> time ., 0] w=1.3219 ✓
+    [NP -> N . N, 0] w=3.3219
+    [NP -> N ., 0] w=2.8365 ✓
+    [N -> . flies, 1] w=2.3219
+    [S -> NP . VP, 0] w=2.8365
+    [VP -> . V NP, 1] w=0.7370
+    [VP -> . V ADVP, 1] w=1.3219
+    [V -> . flies, 1] w=1.0000
+  === Column 2 ===
+    [N -> flies ., 1] w=2.3219 ✓
+    [V -> flies ., 1] w=1.0000 ✓
+    [NP -> N N ., 0] w=5.6439 ✓
+    [VP -> V . NP, 1] w=1.7370
+    [VP -> V . ADVP, 1] w=2.3219
+    [S -> NP . VP, 0] w=5.6439
+    [ADVP -> . ADV NP, 2] w=-0.0000
+    [VP -> . V NP, 2] w=0.7370
+    [VP -> . V ADVP, 2] w=1.3219
+    [ADV -> . like, 2] w=-0.0000
+    [V -> . like, 2] w=1.0000
+  === Column 3 ===
+    [ADV -> like ., 2] w=-0.0000 ✓
+    [V -> like ., 2] w=1.0000 ✓
+    [ADVP -> ADV . NP, 2] w=-0.0000
+    [VP -> V . NP, 2] w=1.7370
+    [VP -> V . ADVP, 2] w=2.3219
+    [NP -> . D N, 3] w=1.3219
+    [D -> . an, 3] w=-0.0000
+  === Column 4 ===
+    [D -> an ., 3] w=-0.0000 ✓
+    [NP -> D . N, 3] w=1.3219
+    [N -> . arrow, 4] w=1.3219
+  === Column 5 ===
+    [N -> arrow ., 4] w=1.3219 ✓
+    [NP -> D N ., 3] w=2.6439 ✓
+    [ADVP -> ADV NP ., 2] w=2.6439 ✓
+    [VP -> V NP ., 2] w=4.3808 ✓
+    [VP -> V ADVP ., 1] w=4.9658 ✓
+    [S -> NP VP ., 0] w=7.8023 ✓
+    [ROOT -> S ., 0] w=7.8023 ✓
+
+(ROOT (S (NP (N time)) (VP (V flies) (ADVP (ADV like) (NP (D an) (N arrow))))))
+7.802285552379208

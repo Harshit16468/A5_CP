@@ -1,0 +1,64 @@
+CHART for: the man shot the soldier with a gun
+  === Column 0 ===
+    [ROOT -> . S, 0] w=-0.0000
+    [S -> . NP VP, 0] w=-0.0000
+    [NP -> . Det N, 0] w=1.0000
+    [NP -> . NP PP, 0] w=1.0000
+    [Det -> . the, 0] w=1.0000
+  === Column 1 ===
+    [Det -> the ., 0] w=1.0000 ✓
+    [NP -> Det . N, 0] w=2.0000
+    [N -> . man, 1] w=1.5564
+  === Column 2 ===
+    [N -> man ., 1] w=1.5564 ✓
+    [NP -> Det N ., 0] w=3.5564 ✓
+    [S -> NP . VP, 0] w=3.5564
+    [NP -> NP . PP, 0] w=4.5564
+    [VP -> . V NP, 2] w=0.3219
+    [VP -> . VP PP, 2] w=2.3219
+    [V -> . shot, 2] w=-0.0000
+  === Column 3 ===
+    [V -> shot ., 2] w=-0.0000 ✓
+    [VP -> V . NP, 2] w=0.3219
+    [NP -> . Det N, 3] w=1.0000
+    [NP -> . NP PP, 3] w=1.0000
+    [Det -> . the, 3] w=1.0000
+  === Column 4 ===
+    [Det -> the ., 3] w=1.0000 ✓
+    [NP -> Det . N, 3] w=2.0000
+    [N -> . soldier, 4] w=1.5995
+  === Column 5 ===
+    [N -> soldier ., 4] w=1.5995 ✓
+    [NP -> Det N ., 3] w=3.5995 ✓
+    [VP -> V NP ., 2] w=3.9214 ✓
+    [NP -> NP . PP, 3] w=4.5995
+    [S -> NP VP ., 0] w=7.4778 ✓
+    [VP -> VP . PP, 2] w=6.2433
+    [PP -> . P NP, 5] w=-0.0000
+    [ROOT -> S ., 0] w=7.4778 ✓
+    [P -> . with, 5] w=-0.0000
+  === Column 6 ===
+    [P -> with ., 5] w=-0.0000 ✓
+    [PP -> P . NP, 5] w=-0.0000
+    [NP -> . Det N, 6] w=1.0000
+    [NP -> . NP PP, 6] w=1.0000
+    [Det -> . a, 6] w=1.0000
+  === Column 7 ===
+    [Det -> a ., 6] w=1.0000 ✓
+    [NP -> Det . N, 6] w=2.0000
+    [N -> . gun, 7] w=1.5995
+  === Column 8 ===
+    [N -> gun ., 7] w=1.5995 ✓
+    [NP -> Det N ., 6] w=3.5995 ✓
+    [PP -> P NP ., 5] w=3.5995 ✓
+    [NP -> NP . PP, 6] w=4.5995
+    [NP -> NP PP ., 3] w=8.1989 ✓
+    [VP -> VP PP ., 2] w=9.8428 ✓
+    [VP -> V NP ., 2] w=8.5209 ✓
+    [NP -> NP . PP, 3] w=9.1989
+    [S -> NP VP ., 0] w=12.0772 ✓
+    [VP -> VP . PP, 2] w=10.8428
+    [ROOT -> S ., 0] w=12.0772 ✓
+
+(ROOT (S (NP (Det the) (N man)) (VP (V shot) (NP (NP (Det the) (N soldier)) (PP (P with) (NP (Det a) (N gun)))))))
+12.077245584244288
